@@ -26,12 +26,9 @@ inputMode = False
 x0, y0, w0, h0 = 0, 0, 0, 0
 window_name = "Object Tracking"
 
-video_name = 'video3.avi'
+video_name = 'video1.avi'
 # example videos with recommended values for optimal results
 # video1.avi delta_threshold = 8 avg_weight = 0.08 search range = 100 (CT)
-# video2.avi delta_threshold = 25 avg_weight = 0.10 search range = 110  (helicopter)
-# video3.avi delta_threshold = 18 avg_weight = 0.12 search range = 100 (cars)
-# video4.avi delta_threshold = 15 avg_weight = 0.10 search range = 100 (tennis)
 
 cap = cv2.VideoCapture(video_name)
 cv2.namedWindow(window_name, flags=cv2.WINDOW_AUTOSIZE)
@@ -39,18 +36,18 @@ cv2.setMouseCallback(window_name, select_roi)
 
 # delta_threshold = Smaller values will lead to more motion being detected tho can lead to noisy tracking,
 # larger values to less motion detected and less noise.
-cv2.createTrackbar("Threshold", window_name, 18, 50, nothing)
+cv2.createTrackbar("Threshold", window_name, 8, 50, nothing)
 
 # avg_weight = Smaller values will make the avg background update slower, making it easier to follow slow moving objects
 # but will lead to more "noisy" tracking
 # higher values will make the background update faster which helps tracking fast moving objects
-cv2.createTrackbar("Avg Weight", window_name, 12, 20, nothing)
+cv2.createTrackbar("Avg Weight", window_name, 0.08, 20, nothing)
 
 # determines the range in which looking to update the single object tracking rectangle
 cv2.createTrackbar("Search Range", window_name, 100, 200, nothing)
 
 # determines how fast the video plays
-cv2.createTrackbar("Delay", window_name, 5, 50, nothing)
+cv2.createTrackbar("Delay", window_name, 3, 50, nothing)
 
 # change these with caution
 min_area = 5
