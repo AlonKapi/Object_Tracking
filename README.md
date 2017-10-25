@@ -1,4 +1,4 @@
-# Object_Tracking
+# Object Tracking
 Object / Motion tracking in python, using background substraction algorithm.
 
 # Made with:
